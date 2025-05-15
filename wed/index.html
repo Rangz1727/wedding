@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Rama & Bella</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('download.jpeg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Great Vibes', cursive;
+    }
+    .overlay {
+      background: rgba(241, 219, 219, 0.5);
+    }
+    .sans {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+<!-- Landing Page -->
+<div id="landing" class="fixed inset-0 bg-black text-white flex flex-col items-center justify-center z-50">
+  <h1 class="text-5xl font-bold mb-4" style="font-family: 'Great Vibes', cursive;">Rama & Bella</h1>
+  <p class="text-lg mb-6">19 Juni 2025</p>
+  <button onclick="openInvitation()" class="bg-white text-black px-6 py-3 rounded-full text-lg hover:bg-gray-300 transition">Buka Undangan</button>
+</div>
+
+<!-- Main Content -->
+<div id="mainContent" class="hidden">
+  <div class="min-h-screen flex flex-col items-center justify-center overlay p-4">
+    <h1 class="text-5xl md:text-6xl text-center mb-4" data-aos="fade-down">Rama & Bella</h1>
+    <p class="text-lg md:text-xl sans text-center" data-aos="fade-up">19 Juni 2025</p>
+    <div id="countdown" class="mt-6 text-xl sans" data-aos="zoom-in"></div>
+
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4" data-aos="fade-up">
+
+      <img src="webcam-toy-photo6.jpg" class="rounded-xl shadow-lg" alt="Foto 3" />
+    </section>
+
+    <div class="mt-10 max-w-xl text-center sans" data-aos="fade-up">
+      <h2 class="text-3xl mb-2">Kisah Kami</h2>
+      <p>Berawal dari tatapan pertama, berkembang menjadi cerita indah yang tak terlupakan. Kini kami siap melangkah ke pelaminan, dan kami ingin Anda menjadi saksi hari bahagia kami.</p>
+    </div>
+
+    <div class="mt-10" data-aos="fade-up">
+      <h2 class="text-3xl text-center mb-4">RSVP</h2>
+      <form class="bg-white p-6 rounded-xl shadow-lg text-black">
+        <input type="text" placeholder="Nama Anda" class="border p-2 w-full mb-4" required>
+        <select class="border p-2 w-full mb-4">
+          <option>Hadir</option>
+          <option>Tidak Hadir</option>
+        </select>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Kirim</button>
+      </form>
+    </div>
+
+    <div class="mt-10" data-aos="fade-up">
+      <h2 class="text-3xl text-center mb-4">Ucapan</h2>
+      <form class="bg-white p-6 rounded-xl shadow-lg text-black">
+        <input type="text" placeholder="Nama Anda" class="border p-2 w-full mb-4" required>
+        <textarea placeholder="Ucapan untuk mempelai" class="border p-2 w-full mb-4" rows="4" required></textarea>
+        <button class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">Kirim Ucapan</button>
+      </form>
+    </div>
+
+    <div class="mt-10 max-w-xl text-center sans" data-aos="fade-up">
+      <h2 class="text-3xl mb-4">Gift & Hadiah</h2>
+      <p class="mb-2">Bagi yang ingin mengirimkan hadiah, berikut informasi rekening & e-wallet kami:</p>
+      <div class="bg-white text-black p-4 rounded-xl shadow-lg text-left space-y-2">
+        <div>
+          <strong>BCA (Rama)</strong><br>
+          1234567890
+        </div>
+        <div>
+          <strong>DANA (Bella)</strong><br>
+          0812-3456-7890
+        </div>
+        <div>
+          <strong>GOPAY</strong><br>
+          0899-8765-4321
+        </div>
+      </div>
+    </div>
+
+    <audio autoplay loop hidden>
+      <source src="lagu.mp3" type="audio/mp3">
+    </audio>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  function openInvitation() {
+    document.getElementById("landing").style.display = "none";
+    document.getElementById("mainContent").classList.remove("hidden");
+    AOS.init();
+  }
+
+  const targetDate = new Date("2025-06-19T00:00:00").getTime();
+  const countdown = document.getElementById("countdown");
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    countdown.innerHTML = `Menuju hari bahagia: ${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+  }, 1000);
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>
